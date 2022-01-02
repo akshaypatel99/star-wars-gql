@@ -1,7 +1,8 @@
 import { View, Text, FlatList } from 'react-native';
 import { gql, useQuery } from '@apollo/client';
+import Card from '../components/Card';
 
-type Person = {
+export type PersonType = {
 	id: string;
 	name: string;
 	gender: string;
@@ -17,7 +18,7 @@ type Person = {
 
 interface PeopleData {
 	allPeople: {
-		people: Person[];
+		people: PersonType[];
 	};
 }
 
@@ -53,19 +54,14 @@ const PeopleScreen = () => {
 	}
 
 	if (data) {
-		console.log(data.allPeople.people);
+		console.log(data.allPeople.people.slice(0, 5));
 	}
 
 	return (
 		<View>
-			<Text></Text>
 			<FlatList
 				data={data?.allPeople.people}
-				renderItem={({ item }) => (
-					<View>
-						<Text>{item.name}</Text>
-					</View>
-				)}
+				renderItem={({ item }) => <Card person={item} />}
 				keyExtractor={(item) => item.id}
 			/>
 		</View>

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import PeopleScreen from './src/screens/PeopleScreen';
 
@@ -12,11 +12,11 @@ const client = new ApolloClient({
 export default function App() {
 	return (
 		<ApolloProvider client={client}>
-			<View style={styles.container}>
+			<SafeAreaView style={styles.container}>
 				<Text>Star Wars Characters</Text>
 				<PeopleScreen />
 				<StatusBar style='auto' />
-			</View>
+			</SafeAreaView>
 		</ApolloProvider>
 	);
 }
