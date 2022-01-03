@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import PeopleScreen from './src/screens/PeopleScreen';
+import Text from './src/components/AppText';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -24,7 +25,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: '#000',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

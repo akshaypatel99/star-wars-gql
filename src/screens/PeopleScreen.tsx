@@ -1,6 +1,7 @@
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { gql, useQuery } from '@apollo/client';
 import Card from '../components/Card';
+import defaultStyles from '../config/styles';
 
 export type PersonType = {
 	id: string;
@@ -58,7 +59,7 @@ const PeopleScreen = () => {
 	}
 
 	return (
-		<View>
+		<View style={defaultStyles.container}>
 			<FlatList
 				data={data?.allPeople.people}
 				renderItem={({ item }) => <Card person={item} />}
@@ -69,3 +70,12 @@ const PeopleScreen = () => {
 };
 
 export default PeopleScreen;
+
+const styles = StyleSheet.create({
+	screen: {
+		width: '100%',
+		height: '100%',
+		flex: 1,
+		backgroundColor: 'yellow',
+	},
+});
