@@ -1,4 +1,4 @@
-import { View, FlatList, StyleSheet, Button, ScrollView } from 'react-native';
+import { View, SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import Text from '../components/AppText';
 import { gql, useQuery } from '@apollo/client';
 import Card from '../components/Card';
@@ -62,7 +62,7 @@ const PEOPLE_QUERY = gql`
 
 const first = 5;
 
-const PeopleScreen = () => {
+const PeopleScreen: React.FC = () => {
 	const { data, error, loading, fetchMore } =
 		useQuery<PeopleData>(PEOPLE_QUERY);
 
@@ -104,7 +104,7 @@ const PeopleScreen = () => {
 	};
 
 	return (
-		<View style={defaultStyles.container}>
+		<SafeAreaView style={defaultStyles.container}>
 			<FlatList
 				data={nodes}
 				renderItem={({ item }) => <Card person={item.node} />}
@@ -115,7 +115,7 @@ const PeopleScreen = () => {
 				ListFooterComponent={<Footer />}
 				ListHeaderComponent={<Header textInput='Characters' />}
 			/>
-		</View>
+		</SafeAreaView>
 	);
 };
 

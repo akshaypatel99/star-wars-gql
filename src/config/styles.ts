@@ -6,7 +6,8 @@ export default {
   colors,
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0
+    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: colors.black, 
   },
   font: {
     fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
@@ -16,7 +17,8 @@ export default {
     textAlign: 'center'
   },
   header: {
-    fontSize: 28,
+    fontSize: 32,
+    marginVertical: 10,
     textTransform: 'uppercase',
     textAlign: 'center'
   },

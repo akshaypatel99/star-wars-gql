@@ -2,8 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { relayStylePagination } from '@apollo/client/utilities';
+import { NavigationContainer } from '@react-navigation/native';
+
 import PeopleScreen from './src/screens/PeopleScreen';
-import Text from './src/components/AppText';
+import BottomTabsNavigator from './src/navigation/BottomTabsNavigator';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -22,10 +24,9 @@ const client = new ApolloClient({
 export default function App() {
 	return (
 		<ApolloProvider client={client}>
-			<SafeAreaView style={styles.container}>
-				<PeopleScreen />
-				<StatusBar style='auto' />
-			</SafeAreaView>
+			<NavigationContainer>
+				<BottomTabsNavigator />
+			</NavigationContainer>
 		</ApolloProvider>
 	);
 }
