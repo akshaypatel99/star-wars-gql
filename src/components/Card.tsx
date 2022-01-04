@@ -11,8 +11,9 @@ const Card: React.FC<CardProps> = ({ person }) => {
 	return (
 		<View style={styles.card}>
 			<View style={styles.cardInfo}>
-				<Text style={defaultStyles.labelText}>Name:</Text>
-				<Text>{person.name}</Text>
+				<Text heading style={{ fontSize: 24, textTransform: 'uppercase' }}>
+					{person.name}
+				</Text>
 			</View>
 			<View style={styles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Gender:</Text>
@@ -21,10 +22,6 @@ const Card: React.FC<CardProps> = ({ person }) => {
 			<View style={styles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Height:</Text>
 				<Text style={{ textTransform: 'none' }}>{person.height} cm</Text>
-			</View>
-			<View style={styles.cardInfo}>
-				<Text style={defaultStyles.labelText}>Eye colour:</Text>
-				<Text>{person.eyeColor}</Text>
 			</View>
 			<View style={styles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Home world:</Text>

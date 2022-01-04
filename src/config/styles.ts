@@ -4,6 +4,9 @@ import colors from './colors';
 
 export default {
   colors,
+  font: {
+    fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
+  },
   text: {
     color: colors.white,
     fontSize: 18,
