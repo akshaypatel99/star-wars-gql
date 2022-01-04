@@ -3,6 +3,22 @@ import { Platform, StatusBar } from 'react-native';
 import colors from './colors';
 
 export default {
+  card: {
+		borderRadius: 20,
+		borderWidth: 5,
+		borderColor: 'white',
+		marginVertical: 10,
+		padding: 20,
+		width: 280,
+		alignSelf: 'center',
+	},
+	cardHeader: {
+		fontSize: 24,
+		textTransform: 'uppercase',
+	},
+	cardInfo: {
+		marginVertical: 5,
+	},
   colors,
   container: {
     flex: 1,

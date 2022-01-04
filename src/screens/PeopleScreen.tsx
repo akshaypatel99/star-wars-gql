@@ -1,4 +1,4 @@
-import { View, SafeAreaView, FlatList, StyleSheet } from 'react-native';
+import { View, SafeAreaView, FlatList } from 'react-native';
 import Text from '../components/AppText';
 import { gql, useQuery } from '@apollo/client';
 import Card from '../components/Card';
@@ -86,12 +86,6 @@ const PeopleScreen: React.FC = () => {
 	const nodes = data?.allPeople.edges;
 	const pageInfo = data?.allPeople.pageInfo;
 
-	if (data) {
-		console.log(nodes);
-		console.log(pageInfo?.endCursor);
-		console.log(pageInfo?.hasNextPage);
-	}
-
 	const onLoadMore = () => {
 		if (pageInfo?.hasNextPage) {
 			fetchMore({
@@ -120,12 +114,3 @@ const PeopleScreen: React.FC = () => {
 };
 
 export default PeopleScreen;
-
-const styles = StyleSheet.create({
-	screen: {
-		width: '100%',
-		height: '100%',
-		flex: 1,
-		backgroundColor: 'yellow',
-	},
-});
