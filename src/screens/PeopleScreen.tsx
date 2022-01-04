@@ -1,14 +1,16 @@
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Button, ScrollView } from 'react-native';
+import Text from '../components/AppText';
 import { gql, useQuery } from '@apollo/client';
 import Card from '../components/Card';
 import defaultStyles from '../config/styles';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 export type PersonType = {
 	id: string;
 	name: string;
 	gender: string;
 	height: number;
-	eyeColor: string;
 	homeworld: {
 		name: string;
 	};
@@ -17,34 +19,52 @@ export type PersonType = {
 	};
 };
 
+type PersonNode = {
+	node: PersonType;
+	cursor: string;
+};
+
 interface PeopleData {
 	allPeople: {
-		people: PersonType[];
+		edges: PersonNode[];
+		pageInfo: {
+			endCursor: string;
+			hasNextPage: boolean;
+		};
 	};
 }
 
 const PEOPLE_QUERY = gql`
-	query People {
-		allPeople {
-			people {
-				id
-				name
-				gender
-				height
-				eyeColor
-				homeworld {
+	query People($after: String) {
+		allPeople(first: 5, after: $after) {
+			edges {
+				node {
+					id
 					name
+					gender
+					height
+					homeworld {
+						name
+					}
+					species {
+						name
+					}
 				}
-				species {
-					name
-				}
+				cursor
+			}
+			pageInfo {
+				endCursor
+				hasNextPage
 			}
 		}
 	}
 `;
 
+const first = 5;
+
 const PeopleScreen = () => {
-	const { data, loading } = useQuery<PeopleData>(PEOPLE_QUERY);
+	const { data, error, loading, fetchMore } =
+		useQuery<PeopleData>(PEOPLE_QUERY);
 
 	if (loading) {
 		return (
@@ -54,16 +74,46 @@ const PeopleScreen = () => {
 		);
 	}
 
-	if (data) {
-		console.log(data.allPeople.people.slice(0, 5));
+	if (error) {
+		console.log(error);
+		return (
+			<View>
+				<Text>Something went wrong: {error.message}</Text>
+			</View>
+		);
 	}
+
+	const nodes = data?.allPeople.edges;
+	const pageInfo = data?.allPeople.pageInfo;
+
+	if (data) {
+		console.log(nodes);
+		console.log(pageInfo?.endCursor);
+		console.log(pageInfo?.hasNextPage);
+	}
+
+	const onLoadMore = () => {
+		if (pageInfo?.hasNextPage) {
+			fetchMore({
+				variables: {
+					first,
+					after: pageInfo.endCursor,
+				},
+			});
+		}
+	};
 
 	return (
 		<View style={defaultStyles.container}>
 			<FlatList
-				data={data?.allPeople.people}
-				renderItem={({ item }) => <Card person={item} />}
-				keyExtractor={(item) => item.id}
+				data={nodes}
+				renderItem={({ item }) => <Card person={item.node} />}
+				keyExtractor={(item) => item.cursor}
+				contentContainerStyle={{ flexGrow: 1 }}
+				onEndReachedThreshold={0.5}
+				onEndReached={onLoadMore}
+				ListFooterComponent={<Footer />}
+				ListHeaderComponent={<Header textInput='Characters' />}
 			/>
 		</View>
 	);

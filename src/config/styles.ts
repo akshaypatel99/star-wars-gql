@@ -4,15 +4,21 @@ import colors from './colors';
 
 export default {
   colors,
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0
+  },
   font: {
     fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
   },
-  text: {
-    color: colors.white,
+  footer: {
     fontSize: 18,
-    fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
-    fontWeight: 'bold',
-    textTransform: 'capitalize'
+    textAlign: 'center'
+  },
+  header: {
+    fontSize: 28,
+    textTransform: 'uppercase',
+    textAlign: 'center'
   },
   labelText: {
     color: colors.white,
@@ -21,8 +27,11 @@ export default {
     textTransform: 'capitalize',
     fontWeight: 'normal'
   },
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0
-  }
+  text: {
+    color: colors.white,
+    fontSize: 18,
+    fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
+    fontWeight: 'bold',
+    textTransform: 'capitalize'
+  },
 }

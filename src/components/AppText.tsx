@@ -20,11 +20,12 @@ const AppText: React.FC<AppTextProps> = ({
 		SFDistantGalaxy: require('../../assets/fonts/SFDistantGalaxy.ttf'),
 	});
 
-	let headingStyle = heading
-		? {
-				fontFamily: 'SFDistantGalaxy',
-		  }
-		: defaultStyles.font;
+	let headingStyle =
+		heading && loaded
+			? {
+					fontFamily: 'SFDistantGalaxy',
+			  }
+			: defaultStyles.font;
 
 	return (
 		<Text style={[defaultStyles.text, headingStyle, style]} {...otherProps}>
