@@ -33,22 +33,22 @@ export default {
     textAlign: 'center'
   },
   header: {
-    fontSize: 32,
+    fontSize: 36,
     marginVertical: 10,
     textTransform: 'uppercase',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   labelText: {
     color: colors.white,
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
     textTransform: 'capitalize',
-    fontWeight: 'normal'
+    fontWeight: '600',
+    marginBottom: 3
   },
   text: {
     color: colors.white,
     fontSize: 18,
-    fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
     fontWeight: 'bold',
     textTransform: 'capitalize'
   },

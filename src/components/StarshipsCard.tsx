@@ -6,11 +6,12 @@ import CardWrapper from './CardWrapper';
 
 type StarshipsCardProps = {
 	starship: StarshipType;
+	index: number;
 };
 
-const StarshipsCard: React.FC<StarshipsCardProps> = ({ starship }) => {
+const StarshipsCard: React.FC<StarshipsCardProps> = ({ starship, index }) => {
 	return (
-		<CardWrapper>
+		<CardWrapper index={index}>
 			<View style={defaultStyles.cardInfo}>
 				<Text heading style={defaultStyles.cardHeader}>
 					{starship.name}

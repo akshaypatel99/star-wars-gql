@@ -99,7 +99,9 @@ const StarshipsScreen: React.FC = () => {
 		<SafeAreaView style={defaultStyles.container}>
 			<FlatList
 				data={nodes}
-				renderItem={({ item }) => <Card starship={item.node} />}
+				renderItem={({ item, index }) => (
+					<Card starship={item.node} index={index} />
+				)}
 				keyExtractor={(item) => item.cursor}
 				contentContainerStyle={{ flexGrow: 1 }}
 				initialNumToRender={5}

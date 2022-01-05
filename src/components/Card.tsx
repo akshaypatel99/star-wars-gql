@@ -6,11 +6,12 @@ import CardWrapper from './CardWrapper';
 
 type CardProps = {
 	person: PersonType;
+	index: number;
 };
 
-const Card: React.FC<CardProps> = ({ person }) => {
+const Card: React.FC<CardProps> = ({ person, index }) => {
 	return (
-		<CardWrapper>
+		<CardWrapper index={index}>
 			<View style={defaultStyles.cardInfo}>
 				<Text heading style={defaultStyles.cardHeader}>
 					{person.name}

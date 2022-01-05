@@ -11,7 +11,7 @@ type ErrorProps = {
 const Error: React.FC<ErrorProps> = ({ error }) => {
 	return (
 		<SafeAreaView style={defaultStyles.container}>
-			<View style={{ flex: 1, alignItems: 'center' }}>
+			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 				<Text>Something went wrong: {error && error.message}</Text>
 			</View>
 		</SafeAreaView>

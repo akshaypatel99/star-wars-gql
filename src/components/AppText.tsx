@@ -17,16 +17,21 @@ const AppText: React.FC<AppTextProps> = ({
 	heading = false,
 	...otherProps
 }) => {
-	const [loaded] = useFonts({
+	const [SFloaded] = useFonts({
 		SFDistantGalaxy: require('../../assets/fonts/SFDistantGalaxy.ttf'),
+	});
+	const [FGloaded] = useFonts({
+		FranklinGothic: require('../../assets/fonts/FranklinGothic.ttf'),
 	});
 
 	let headingStyle =
-		heading && loaded
+		heading && SFloaded
 			? {
 					fontFamily: 'SFDistantGalaxy',
 					textAlign: 'center',
 			  }
+			: FGloaded
+			? { fontFamily: 'FranklinGothic' }
 			: defaultStyles.font;
 
 	return (

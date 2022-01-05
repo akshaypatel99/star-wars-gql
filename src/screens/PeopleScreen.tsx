@@ -93,7 +93,9 @@ const PeopleScreen: React.FC = () => {
 		<SafeAreaView style={defaultStyles.container}>
 			<FlatList
 				data={nodes}
-				renderItem={({ item }) => <Card person={item.node} />}
+				renderItem={({ item, index }) => (
+					<Card person={item.node} index={index} />
+				)}
 				keyExtractor={(item) => item.cursor}
 				contentContainerStyle={{ flexGrow: 1 }}
 				initialNumToRender={5}

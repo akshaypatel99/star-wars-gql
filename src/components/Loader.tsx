@@ -5,7 +5,7 @@ import defaultStyles from '../config/styles';
 const Loader: React.FC = () => {
 	return (
 		<SafeAreaView style={defaultStyles.container}>
-			<View style={{ flex: 1, alignItems: 'center' }}>
+			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 				<Text>Loading data...</Text>
 			</View>
 		</SafeAreaView>

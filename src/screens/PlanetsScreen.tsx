@@ -94,7 +94,9 @@ const PlanetsScreen: React.FC = () => {
 		<SafeAreaView style={defaultStyles.container}>
 			<FlatList
 				data={nodes}
-				renderItem={({ item }) => <Card planet={item.node} />}
+				renderItem={({ item, index }) => (
+					<Card planet={item.node} index={index} />
+				)}
 				keyExtractor={(item) => item.cursor}
 				contentContainerStyle={{ flexGrow: 1 }}
 				initialNumToRender={5}

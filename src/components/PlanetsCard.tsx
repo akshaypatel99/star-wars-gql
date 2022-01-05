@@ -6,11 +6,12 @@ import CardWrapper from './CardWrapper';
 
 type PlanetsCardProps = {
 	planet: PlanetType;
+	index: number;
 };
 
-const PlanetsCard: React.FC<PlanetsCardProps> = ({ planet }) => {
+const PlanetsCard: React.FC<PlanetsCardProps> = ({ planet, index }) => {
 	return (
-		<CardWrapper>
+		<CardWrapper index={index}>
 			<View style={defaultStyles.cardInfo}>
 				<Text heading style={defaultStyles.cardHeader}>
 					{planet.name}
