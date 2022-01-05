@@ -18,7 +18,7 @@ const BottomTabsNavigator: React.FC = () => {
 			screenOptions={{
 				headerShown: false,
 				tabBarStyle: {
-					backgroundColor: colors.gray,
+					backgroundColor: colors.black,
 					borderTopWidth: 0,
 				},
 			}}
@@ -31,7 +31,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<Text
 							style={{
 								fontSize: 10,
-								color: focused ? colors.yellow : colors.white,
+								color: focused ? colors.yellow : colors.lightblue,
 							}}
 						>
 							Characters
@@ -41,7 +41,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<FontAwesome5
 							name={focused ? 'jedi' : 'jedi-order'}
 							size={24}
-							color={focused ? colors.yellow : colors.white}
+							color={focused ? colors.yellow : colors.lightblue}
 						/>
 					),
 					tabBarActiveTintColor: colors.yellow,
@@ -55,7 +55,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<Text
 							style={{
 								fontSize: 10,
-								color: focused ? colors.yellow : colors.white,
+								color: focused ? colors.yellow : colors.lightblue,
 							}}
 						>
 							Planets
@@ -65,7 +65,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<Ionicons
 							name={focused ? 'planet' : 'planet-outline'}
 							size={24}
-							color={focused ? colors.yellow : colors.white}
+							color={focused ? colors.yellow : colors.lightblue}
 						/>
 					),
 					tabBarActiveTintColor: colors.yellow,
@@ -79,7 +79,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<Text
 							style={{
 								fontSize: 10,
-								color: focused ? colors.yellow : colors.white,
+								color: focused ? colors.yellow : colors.lightblue,
 							}}
 						>
 							Starships
@@ -89,7 +89,7 @@ const BottomTabsNavigator: React.FC = () => {
 						<MaterialCommunityIcons
 							name={focused ? 'death-star-variant' : 'death-star'}
 							size={24}
-							color={focused ? colors.yellow : colors.white}
+							color={focused ? colors.yellow : colors.lightblue}
 						/>
 					),
 					tabBarActiveTintColor: colors.yellow,

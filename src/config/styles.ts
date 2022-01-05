@@ -9,7 +9,7 @@ export default {
 		borderColor: 'white',
 		marginVertical: 10,
 		padding: 20,
-		width: 280,
+		width: '80%',
 		alignSelf: 'center',
 	},
 	cardHeader: {

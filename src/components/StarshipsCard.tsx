@@ -28,7 +28,7 @@ const StarshipsCard: React.FC<StarshipsCardProps> = ({ starship, index }) => {
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Manufacturers:</Text>
 				{starship.manufacturers.map((company, index) => (
-					<Text key={index}>{company}</Text>
+					<Text key={index}>- {company}</Text>
 				))}
 			</View>
 			<View style={defaultStyles.cardInfo}>

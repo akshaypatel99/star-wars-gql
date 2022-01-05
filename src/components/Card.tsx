@@ -26,6 +26,10 @@ const Card: React.FC<CardProps> = ({ person, index }) => {
 				<Text style={{ textTransform: 'none' }}>{person.height} cm</Text>
 			</View>
 			<View style={defaultStyles.cardInfo}>
+				<Text style={defaultStyles.labelText}>Birth Year:</Text>
+				<Text style={{ textTransform: 'uppercase' }}>{person.birthYear}</Text>
+			</View>
+			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Home world:</Text>
 				<Text>{person.homeworld.name}</Text>
 			</View>
@@ -33,6 +37,16 @@ const Card: React.FC<CardProps> = ({ person, index }) => {
 				<Text style={defaultStyles.labelText}>Species:</Text>
 				<Text>{person.species ? person.species.name : 'Unknown'}</Text>
 			</View>
+			{person.starshipConnection.starships.length > 1 && (
+				<View style={defaultStyles.cardInfo}>
+					<Text style={defaultStyles.labelText}>Starships:</Text>
+					{person.starshipConnection.starships.map((starship, index) => (
+						<Text key={index} style={{ marginBottom: 5 }}>
+							- {starship.name}
+						</Text>
+					))}
+				</View>
+			)}
 		</CardWrapper>
 	);
 };

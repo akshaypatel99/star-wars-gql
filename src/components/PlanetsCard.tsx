@@ -26,13 +26,13 @@ const PlanetsCard: React.FC<PlanetsCardProps> = ({ planet, index }) => {
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Climate:</Text>
 				{planet.climates.map((climate, index) => (
-					<Text key={index}>{climate}</Text>
+					<Text key={index}>- {climate}</Text>
 				))}
 			</View>
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Terrain:</Text>
-				{planet.terrains.map((climate, index) => (
-					<Text key={index}>{climate}</Text>
+				{planet.terrains.map((terrain, index) => (
+					<Text key={index}>- {terrain}</Text>
 				))}
 			</View>
 			<View style={defaultStyles.cardInfo}>

@@ -13,11 +13,19 @@ export type PersonType = {
 	name: string;
 	gender: string;
 	height: number;
+	birthYear: string;
 	homeworld: {
 		name: string;
 	};
 	species: {
 		name: string;
+	};
+	starshipConnection: {
+		starships: [
+			{
+				name: string;
+			}
+		];
 	};
 };
 
@@ -45,11 +53,17 @@ const PEOPLE_QUERY = gql`
 					name
 					gender
 					height
+					birthYear
 					homeworld {
 						name
 					}
 					species {
 						name
+					}
+					starshipConnection {
+						starships {
+							name
+						}
 					}
 				}
 				cursor
