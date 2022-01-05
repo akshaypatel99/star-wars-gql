@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
+import colors from '../config/colors';
 
 type CardWrapperProps = {
 	children: ReactNode;
@@ -13,6 +14,7 @@ export default CardWrapper;
 
 const styles = StyleSheet.create({
 	card: {
+		backgroundColor: colors.gray,
 		borderRadius: 20,
 		borderWidth: 5,
 		borderColor: 'white',

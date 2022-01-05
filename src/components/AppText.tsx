@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Text } from 'react-native';
 import { useFonts } from 'expo-font';
 import defaultStyles from '../config/styles';
+import colors from '../config/colors';
 
 type AppTextProps = {
 	children: ReactNode;
@@ -24,6 +25,7 @@ const AppText: React.FC<AppTextProps> = ({
 		heading && loaded
 			? {
 					fontFamily: 'SFDistantGalaxy',
+					textAlign: 'center',
 			  }
 			: defaultStyles.font;
 

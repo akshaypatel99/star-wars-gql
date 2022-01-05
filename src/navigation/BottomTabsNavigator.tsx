@@ -7,40 +7,92 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import PeopleScreen from '../screens/PeopleScreen';
 import PlanetsScreen from '../screens/PlanetsScreen';
 import StarshipsScreen from '../screens/StarshipsScreen';
+import colors from '../config/colors';
+import Text from '../components/AppText';
 
 const BottomTabs = createBottomTabNavigator();
 
 const BottomTabsNavigator: React.FC = () => {
 	return (
-		<BottomTabs.Navigator screenOptions={{ headerShown: false }}>
+		<BottomTabs.Navigator
+			screenOptions={{
+				headerShown: false,
+				tabBarStyle: {
+					backgroundColor: colors.gray,
+					borderTopWidth: 0,
+				},
+			}}
+		>
 			<BottomTabs.Screen
 				name='Characters'
 				component={PeopleScreen}
 				options={{
-					tabBarLabel: 'Characters',
-					tabBarIcon: ({ color, size }) => (
-						<FontAwesome5 name='jedi' size={24} color='black' />
+					tabBarLabel: ({ focused, color }) => (
+						<Text
+							style={{
+								fontSize: 10,
+								color: focused ? colors.yellow : colors.white,
+							}}
+						>
+							Characters
+						</Text>
 					),
+					tabBarIcon: ({ focused, color, size }) => (
+						<FontAwesome5
+							name={focused ? 'jedi' : 'jedi-order'}
+							size={24}
+							color={focused ? colors.yellow : colors.white}
+						/>
+					),
+					tabBarActiveTintColor: colors.yellow,
 				}}
 			/>
 			<BottomTabs.Screen
 				name='Planets'
 				component={PlanetsScreen}
 				options={{
-					tabBarLabel: 'Planets',
-					tabBarIcon: ({ color, size }) => (
-						<Ionicons name='planet' size={24} color='black' />
+					tabBarLabel: ({ focused, color }) => (
+						<Text
+							style={{
+								fontSize: 10,
+								color: focused ? colors.yellow : colors.white,
+							}}
+						>
+							Planets
+						</Text>
 					),
+					tabBarIcon: ({ focused, color, size }) => (
+						<Ionicons
+							name={focused ? 'planet' : 'planet-outline'}
+							size={24}
+							color={focused ? colors.yellow : colors.white}
+						/>
+					),
+					tabBarActiveTintColor: colors.yellow,
 				}}
 			/>
 			<BottomTabs.Screen
 				name='Starships'
 				component={StarshipsScreen}
 				options={{
-					tabBarLabel: 'Starships',
-					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons name='death-star' size={24} color='black' />
+					tabBarLabel: ({ focused, color }) => (
+						<Text
+							style={{
+								fontSize: 10,
+								color: focused ? colors.yellow : colors.white,
+							}}
+						>
+							Starships
+						</Text>
 					),
+					tabBarIcon: ({ focused, color, size }) => (
+						<MaterialCommunityIcons
+							name={focused ? 'death-star-variant' : 'death-star'}
+							size={24}
+							color={focused ? colors.yellow : colors.white}
+						/>
+					),
+					tabBarActiveTintColor: colors.yellow,
 				}}
 			/>
 		</BottomTabs.Navigator>
