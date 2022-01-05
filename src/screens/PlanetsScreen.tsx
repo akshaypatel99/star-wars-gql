@@ -5,6 +5,8 @@ import Card from '../components/PlanetsCard';
 import defaultStyles from '../config/styles';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 
 export type PlanetType = {
 	id: string;
@@ -67,30 +69,15 @@ const PlanetsScreen: React.FC = () => {
 		useQuery<PlanetData>(PLANETS_QUERY);
 
 	if (loading) {
-		return (
-			<View>
-				<Text>Loading data...</Text>
-			</View>
-		);
+		return <Loader />;
 	}
 
 	if (error) {
-		console.log(error);
-		return (
-			<View>
-				<Text>Something went wrong: {error.message}</Text>
-			</View>
-		);
+		return <Error error={error} />;
 	}
 
 	const nodes = data?.allPlanets.edges;
 	const pageInfo = data?.allPlanets.pageInfo;
-
-	if (data) {
-		console.log(nodes);
-		console.log(pageInfo?.endCursor);
-		console.log(pageInfo?.hasNextPage);
-	}
 
 	const onLoadMore = () => {
 		if (pageInfo?.hasNextPage) {
@@ -110,6 +97,7 @@ const PlanetsScreen: React.FC = () => {
 				renderItem={({ item }) => <Card planet={item.node} />}
 				keyExtractor={(item) => item.cursor}
 				contentContainerStyle={{ flexGrow: 1 }}
+				initialNumToRender={5}
 				onEndReachedThreshold={0.5}
 				onEndReached={onLoadMore}
 				ListFooterComponent={<Footer />}

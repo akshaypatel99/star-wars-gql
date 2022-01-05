@@ -40,7 +40,9 @@ const PlanetsCard: React.FC<PlanetsCardProps> = ({ planet }) => {
 			</View>
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Diameter:</Text>
-				<Text style={{ textTransform: 'none' }}>{planet.diameter} km</Text>
+				<Text style={{ textTransform: 'none' }}>
+					{planet.diameter.toLocaleString()} km
+				</Text>
 			</View>
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Gravity:</Text>
@@ -49,13 +51,13 @@ const PlanetsCard: React.FC<PlanetsCardProps> = ({ planet }) => {
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Rotation period:</Text>
 				<Text style={{ textTransform: 'none' }}>
-					{planet.rotationPeriod} hours
+					{planet.rotationPeriod.toLocaleString()} hours
 				</Text>
 			</View>
 			<View style={defaultStyles.cardInfo}>
 				<Text style={defaultStyles.labelText}>Orbital period:</Text>
 				<Text style={{ textTransform: 'none' }}>
-					{planet.orbitalPeriod} days
+					{planet.orbitalPeriod.toLocaleString()} days
 				</Text>
 			</View>
 		</CardWrapper>

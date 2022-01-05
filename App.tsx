@@ -13,6 +13,7 @@ const client = new ApolloClient({
 				fields: {
 					allPeople: relayStylePagination(),
 					allPlanets: relayStylePagination(),
+					allStarships: relayStylePagination(),
 				},
 			},
 		},

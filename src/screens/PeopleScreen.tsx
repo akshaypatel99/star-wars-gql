@@ -1,10 +1,12 @@
-import { View, SafeAreaView, FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import Text from '../components/AppText';
 import { gql, useQuery } from '@apollo/client';
 import Card from '../components/Card';
 import defaultStyles from '../config/styles';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 
 export type PersonType = {
 	id: string;
@@ -60,31 +62,21 @@ const PEOPLE_QUERY = gql`
 	}
 `;
 
-const first = 5;
-
 const PeopleScreen: React.FC = () => {
 	const { data, error, loading, fetchMore } =
 		useQuery<PeopleData>(PEOPLE_QUERY);
 
 	if (loading) {
-		return (
-			<View>
-				<Text>Loading data...</Text>
-			</View>
-		);
+		return <Loader />;
 	}
 
 	if (error) {
-		console.log(error);
-		return (
-			<View>
-				<Text>Something went wrong: {error.message}</Text>
-			</View>
-		);
+		return <Error error={error} />;
 	}
 
 	const nodes = data?.allPeople.edges;
 	const pageInfo = data?.allPeople.pageInfo;
+	const first = 5;
 
 	const onLoadMore = () => {
 		if (pageInfo?.hasNextPage) {
@@ -104,6 +96,7 @@ const PeopleScreen: React.FC = () => {
 				renderItem={({ item }) => <Card person={item.node} />}
 				keyExtractor={(item) => item.cursor}
 				contentContainerStyle={{ flexGrow: 1 }}
+				initialNumToRender={5}
 				onEndReachedThreshold={0.5}
 				onEndReached={onLoadMore}
 				ListFooterComponent={<Footer />}

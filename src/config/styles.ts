@@ -23,7 +23,7 @@ export default {
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: colors.black, 
+    backgroundColor: colors.black,
   },
   font: {
     fontFamily: Platform.OS === 'ios' ? 'Avenir' : 'Montserrat',
