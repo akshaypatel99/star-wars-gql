@@ -6,7 +6,7 @@ const Loader: React.FC = () => {
 	return (
 		<SafeAreaView style={defaultStyles.container}>
 			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-				<Text>Loading data...</Text>
+				<Text heading>Loading data...</Text>
 			</View>
 		</SafeAreaView>
 	);
