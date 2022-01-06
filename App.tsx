@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { relayStylePagination } from '@apollo/client/utilities';
@@ -51,6 +52,7 @@ export default function App() {
 
 	return (
 		<ApolloProvider client={client}>
+			<StatusBar style='light' />
 			<NavigationContainer>
 				<BottomTabsNavigator />
 			</NavigationContainer>
