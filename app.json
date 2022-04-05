@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1A1110"
+      "backgroundColor": "#0F0F0F"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +22,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#1A1110"
+        "backgroundColor": "#0F0F0F"
       }
     },
     "web": {
@@ -30,6 +30,6 @@
     },
     "description": "Star Wars Trivia App powered by GraphQL, Apollo, and React Native. Written in TypeScript.",
     "githubUrl": "https://github.com/akshaypatel99/star-wars-gql",
-    "primaryColor": "#1A1110"
+    "primaryColor": "#0F0F0F"
   }
 }
