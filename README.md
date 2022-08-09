@@ -2,7 +2,7 @@
 
 ### **_All you need to know about the Star Wars Universe - a mobile app built with React Native, Apollo Client and GraphQL_**
 
-Check out the live site [**here**](https://tinyurl.com/starwars-trivia-gql).
+#### Check out the live site [**here**](https://tinyurl.com/starwars-trivia-gql).
 
 ## Project Overview
 
